@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package v1.sejin;
+
+option go_package = "github.com/sejin-P/go-grpc-prc/protos/v1/sejin";
+
+import "google/api/annotations.proto";
+
+service Sejin {
+  rpc GetInfo(GetInfoRequest) returns (GetInfoResponse){
+    option (google.api.http)={
+      get: "/v1/sejin/{id}"
+    };
+  };
+}
+
+message SejinMessage {
+  string id = 1;
+  string name = 2;
+}
+
+message GetInfoRequest {
+  string id = 1;
+}
+
+message GetInfoResponse {
+  SejinMessage message = 1;
+}

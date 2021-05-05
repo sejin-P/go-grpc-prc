@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package v1.park;
+
+option go_package = "github.com/sejin-P/go-grpc-prc/protos/v1/park";
+
+service Park {
+  rpc GetPark(GetParkRequest) returns (GetParkResponse);
+}
+
+message ParkMessage {
+  string id = 1;
+  string name = 2;
+}
+
+message GetParkRequest {
+  string id = 1;
+}
+
+message GetParkResponse {
+  ParkMessage message = 1;
+}
